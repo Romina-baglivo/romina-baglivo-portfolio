@@ -11,14 +11,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,9 +56,9 @@ hr{ height: 2px;
      border: none; 
      background: linear-gradient(to right, #70D6FF, #A370FF); 
      box-shadow: 0 0 10px rgba(112, 214, 255, 0.5), 0 0 10px rgba(163, 112, 255, 0.5); 
-     width: 100%; }
+     width: 100%; 
+}
 
-/* HERO */
 .hero {
     display: flex;
     align-items: center;
@@ -93,7 +94,12 @@ hr{ height: 2px;
     box-shadow: 0 0 15px rgba(112, 214, 255, 0.4);
 }
 
-/* SECTIONS */
+.btn:hover {
+    box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+    transform: translateY(-3px);
+}
+
+
 section {
     padding: 60px 10%;
 }
@@ -103,7 +109,7 @@ h2 {
     text-align: center;
 }
 
-/* SKILLS */
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -132,6 +138,13 @@ h2 {
     background: var(--bg-card);
     padding: 25px;
     border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(112, 214, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(112, 214, 255, 0.5);
 }
 
 .project-link {
@@ -139,11 +152,36 @@ h2 {
     margin-top: 15px;
     color: var(--neon-blue);
     text-decoration: none;
+    font-weight: bold;
 }
 .project-link:hover {
     color: var(--neon-purple);
     text-shadow: 0 0 10px var(--neon-purple);
 }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tech-badge {
+    display: inline-block;
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
 .contact {
     text-align: center;
 }
@@ -153,8 +191,24 @@ h2 {
 }
 
 footer {
-    background: rgba(45, 58, 90, 0.9);
+    background: linear-gradient(90deg, #70D6FF, #A370FF);
     text-align: center;
     padding: 30px;
     font-size: 0.9rem;
+    color: var(--bg-dark);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img {
+        max-height: 300px;
+    }
+
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
